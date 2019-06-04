@@ -1,10 +1,12 @@
-# -
+### 練習
+# 動作確認必須。全角が入ってたりコピーミスったら終わり
 
 
-## 練習問題解いてみる
+#### 入力された正の整数までの奇数の総和を求める
 
 
 ```C
+
 #define _CRT_NO_SECURE_WARNINGS
 
 #include <stdio.h>
@@ -12,34 +14,45 @@
 
 int main(){
 
-int num, sum = 0;
+  int num;    //読み取り用の変数
+  int sum = 0;//合計値　出力用の変数
 
-printf("enter number:");
-scanf("%d", &num);
+  /*正の整数を入力してもらう*/
+  printf("enter number:");
+  scanf("%d", &num);
 
-while(1){
+  /*正負によって処理を変えるループ*/
+  while(1){
 
-  if(num <= 0){
-    printf("try again");
-    }
-  else{
-  
-  for(int i = 0; i <= num; i++){
-    if(i%2){
-    sum += i;
-    printf("\t%d", i);
-    printf("\t%d\n",sum);
+        /*負のときは再入力を促す*/
+      if(num <= 0){
+        printf("try again");
+      }
+      
+        /*正のときは合計値を求める*/
+      else{
+
+        for(int i = 0; i <= num; i++){
+      
+          /*あまりが非0のとき＝奇数のとき*/
+          if(i%2){
+            sum += i;            //sumにiを足す
+            printf("\t%d", i);   //iを表示
+            printf("\t%d\n", sum);//ここまでの合計値を表示
+          }
+   
+        }
+     
+        /*足し終わったらwhileを出る*/
+        break;
+      }
   }
-  break;
+  
+    /*結果の出力*/
+    printf("sum = %d\n", sum);//合計値の出力
 
- }
-
-}
-
-printf("%d", sum);
-
-system("pause");
-return 0:
-}
+    system("pause");
+    return 0;
+  }
 
 ```
