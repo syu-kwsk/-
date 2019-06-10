@@ -24,35 +24,37 @@ int main(){
   /*正負によって処理を変えるループ*/
   while(1){
 
-        /*負のときは再入力を促す*/
-      if(num <= 0){
-        printf("try again");
-      }
+    /*負のときは再入力を促す*/
+    if(num <= 0){
+      printf("try again\n");
+      printf("enter number:");
+      scanf("%d", &num);
+    }
       
-        /*正のときは合計値を求める*/
-      else{
+    /*正のときは合計値を求める*/
+    else{
 
-        for(int i = 0; i <= num; i++){
+      for(int i = 0; i <= num; i++){
       
-          /*あまりが非0のとき＝奇数のとき*/
-          if(i%2){
-            sum += i;            //sumにiを足す
-            printf("\t%d", i);   //iを表示
-            printf("\t%d\n", sum);//ここまでの合計値を表示
-          }
-   
+        /*あまりが非0のとき＝奇数のとき*/
+        if(i%2){
+          sum += i;            //sumにiを足す
+          printf("\t%d", i);   //iを表示
+          printf("\t%d\n", sum);//ここまでの合計値を表示
         }
-     
-        /*足し終わったらwhileを出る*/
-        break;
+   
       }
+     
+      /*足し終わったらwhileを出る*/
+      break;
+    }
   }
   
-    /*結果の出力*/
-    printf("sum = %d\n", sum);//合計値の出力
+  /*結果の出力*/
+  printf("sum = %d\n", sum);//合計値の出力
 
-    system("pause");
-    return 0;
-  }
+  system("pause");
+  return 0;
+}
 
 ```
