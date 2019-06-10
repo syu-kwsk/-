@@ -1,7 +1,59 @@
 ### 練習
 # 動作確認必須。全角が入ってたりコピーミスったら終わり
 
+#### 入力された正の整数までの３の倍数をすべて求める
 
+```C
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+
+	int num;    //読み取り用の変数
+	int sum = 0;//合計値　出力用の変数
+
+	/*正の整数を入力してもらう*/
+	printf("enter number:");
+	scanf("%d", &num);
+	
+	/*正負によって処理を変えるループ*/
+	while (1) {
+		printf("入力された値は%dです\n", num);
+
+		/*負のときは再入力を促す*/
+		if (num <= 0) {
+			printf("try again\n");
+			printf("enter number:");
+			scanf("%d", &num);
+		}
+
+		/*正のときは合計値を求める*/
+		else {
+
+			for (int i = 1; i <= num; i++) {
+
+				/*あまりが非0のとき＝３の倍数のとき*/
+				if (i % 3 == 0) {
+					sum += 1;            //sum(３の倍数の０個数)に1を足す
+					printf("%d\n", i);   //iを表示
+				}
+
+			}
+
+			/*足し終わったらwhileを出る*/
+			break;
+		}
+	}
+
+	/*結果の出力*/
+	printf("３の倍数は全部で%d個です\n", sum);//合計値の出力
+
+	system("pause");
+	return 0;
+}
+```
 #### 入力された正の整数までの奇数の総和を求める
 
 
