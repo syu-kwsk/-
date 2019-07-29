@@ -9,14 +9,24 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int check(int n);
-int check_range(int n);
-void list(int *data, int *result);
+int check(int n); //偶数か奇数かの判定関数
+
+int check_range(int n);　//入力された整数が１〜５にあるか判定する関数
+
+void list(int *data, int *result); //配列に格納する関数
 
 int check(int n) {
 	int ans = 0;
 
-	n % 2 ? ans = 1 : ans = 0;
+	//n % 2 ? ans = 1 : ans = 0;
+	//書き換えられる↓
+	
+	if(n%2 == 1){
+	  ans = 1;
+	}
+	else{
+	  ans = 0;
+	}
 
 	return ans;
 }
