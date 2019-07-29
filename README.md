@@ -31,7 +31,7 @@ int check_range(int n) {
 }
 
 void list(int *data, int *result) {
-	for (int *i = data; i < data+5; i++) {
+	for (int *i = data; i < data + 5; i++) {
 		*result = check(*i);
 		result++;
 	}
@@ -41,7 +41,7 @@ void list(int *data, int *result) {
 
 int main(void) {
 	int n = 0;
-	int data[5] = { 5, 9, 12, 18, 21};
+	int data[5] = { 5, 9, 12, 18, 21 };
 	int result[5];
 	int range_ok = 1;
 
@@ -53,10 +53,15 @@ int main(void) {
 		range_ok = check_range(n);
 	}
 
-	
 
-	printf("%d\t\r\n",  check( data[n-1] ) );
-		
+	if (check(data[n - 1])) {
+		printf("%d番目は奇数です\t\r\n", n);
+	}
+	else {
+		printf("%d番目は偶数です\t\r\n", n);
+
+	}
+	
 
 	system("pause");
 	return 0;
