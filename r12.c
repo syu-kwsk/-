@@ -12,6 +12,7 @@ int main(void){
   return 0;
 }
 
+
 void max_p(int x, int y){
 
   printf("%d\n", x > y ? x : y);
