@@ -191,6 +191,113 @@ void divisors_p(int n) {
     }
   }
 }
+//
+int sum_of_divisors(int n) {
+  int ans = 0;
+  for (int i = 1; i <= n; i++) {
+    if (n % i == 0) {
+      ans += i;
+    }
+  }
+
+  return ans;
+}
+//30
+int is_perfect(int n) {
+  return n == sum_of_divisors(n) - n;
+}
+//31
+int cal_divisors_num(int n) {
+  int ans = 0;
+  for (int i = 1; i <= n; i++) {
+    if (n % i == 0) {
+      ans++;
+    }
+  }
+
+  return ans;
+}
+
+int most_divisors(int n) {
+  int ans;
+  int max = 1;
+  for (int i = 1; i <= n; i++) {
+    int tmp = cal_divisors_num(i);
+    if (max < tmp) {
+      max = tmp;
+      ans = i;
+    }
+  }
+
+  return ans;
+}
+
+//32
+int is_prime(int n) {
+  int num = 0;
+  for (int i = 1; i <= n; i++) {
+    if (n % i == 0) {
+      num++;
+    }
+
+    if (num > 2) {
+      return 0;
+    }
+  }
+
+  return 1;
+}
+//33
+int primes(int n) {
+  int ans = 0;
+  for (int i = 2; i <= n; i++) {
+    ans += is_prime(i);
+  }
+
+  return ans;
+}
+
+//34
+int is_square(int n) {
+  for (int i = 1; i < n; i++) {
+    if (n == i*i) {
+      return 1;
+    }
+  }
+  return 0;
+}
+
+//35
+int is_cubic(int n) {
+  for (int i = 1; i < n; i++) {
+    if (n == i*i*i) {
+      return 1;
+    }
+  }
+  return 0;
+}
+
+//36
+int is_squeare_sum(int n) {
+  for (int i = 1; i < n; i++) {
+    if (is_square( n - i*i)) {
+      return 1;
+    }
+  }
+  return 0;
+}
+//37
+void j_era(int year) {
+  if (year >= 2020) {
+    printf("R%i", year-2018);
+  } else if (year >= 1990) {
+    printf("H%i", year-1988);
+  } else if (year >= 1927) {
+    printf("S%i", year-1925);
+  } else {
+    printf("year is out of wareki range");
+  }
+}
 
 //51
 int rand_n(int n){
@@ -221,6 +328,8 @@ int main(void) {
   //printf("%d", max4(1, 2, 3, 4));
   //printf("%d", right_angle(12, 13, 5));
   //printf("%d", fz(15));
-  divisors_p(60);
+  //divisors_p(60);
+  //printf("%d", is_squeare_sum(31543));
+  j_era(1945);
   return 0;
 }
